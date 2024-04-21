@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 36rem;
+  --body-font: 'Roboto', sans-serif;
+  --heading-font: 'Roboto Slab', serif;
+
+  font-family: var(--body-font);
+  font-size: 20px;
+  line-height: 1.5;
+  
+  --primary-color: #001E44;
+  --secondary-color: #1E407C;
+  --tertiary-color: #96BEE6;
+  --background-color: #E4E5E7;
+  --text-light: #FFFFFF;
+  --text-dark: #000000;
+
+  background-color: var(--background-color);
+
+  --font-size-base: 100%; /* 16px */
+  --font-size-h1: 4.210rem; /* 67.36px */
+  --font-size-h2: 3.158rem; /* 50.56px */
+  --font-size-h3: 2.369rem; /* 37.92px */
+  --font-size-h4: 1.777rem; /* 28.48px */
+  --font-size-h5: 1.333rem; /* 21.28px */
+  --font-size-small: 0.750rem; /* 12px */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+}
+
+html {font-size: 100%;} /* 16px */
+
+h1 {font-size: 4.210rem; /* 67.36px */}
+
+h2 {font-size: 3.158rem; /* 50.56px */}
+
+h3 {font-size: 2.369rem; /* 37.92px */}
+
+h4 {font-size: 1.777rem; /* 28.48px */}
+
+h5 {font-size: 1.333rem; /* 21.28px */}
+
+small {font-size: 0.750rem; /* 12px */}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ta-c{
+  text-align: center;
+}

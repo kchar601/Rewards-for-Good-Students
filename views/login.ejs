@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <script src="/javascripts/login.js"></script>
+</head>
+<body>
+    <div class="Hero">
+        <h1 class="ta-c">Rewards for Good Students</h1>
+        <h2 class="ta-c">Login</h2>
+    </div>
+    <form action="/login" method="POST" class="mx-auto">
+            <label for="email">Email</label>
+            <input class="mx-auto" type="email" name="email" id="email" required>
+            <label for="password">Password</label>
+            <input class="mx-auto" type="password" name="password" id="password" required>
+            <button class="mx-auto" type="submit">Login</button>
+    </form>
+    <div class="footer">
+        <a href="/signup">Don't have an account? Signup</a>
+    </div> 
+</body>
+</html>
