@@ -3,6 +3,7 @@ const session = require('express-session');
 const { fstat } = require('fs');
 const bcrypt = require("bcrypt");
 const path = require('path');
+const ejs = require('ejs');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
