@@ -28,6 +28,8 @@
     padding: 8px;
     margin-block-start: 0;
     margin-block-end: 0;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 .eventDetails{
     display: flex;
@@ -39,6 +41,8 @@
     margin: 0;
     padding: 0;
     display: block;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 .progress-container {
     background-color: #D3D3D3; /* Light grey background */
