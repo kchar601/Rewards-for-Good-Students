@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSU Events</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/events.css">
+    <script src="/javascripts/checkLogin.js"></script>
+</head>
+<body>
+    <%- include('menu', {currentPage: 'Home', fillColor: '#FFFFFF', backgroundColor: 'secondary'}); %>
+    <div class="section pt-32">
+        <h2>Events</h2>
+        <h3>Upcoming Events</h3>
+        <div class="eventWrapper">
+            <% events.slice(0, 3).forEach(function(event) { %>
+                <a href="/EventDetails?id=<%= event.id %>" class="event">
+                    <h4><%= event.Title %></h4>
+                    <div class="eventDetails">            
+                        <p><%= moment(event.TimeDate).format('M/D h:mm a') %></p>
+                        <p>@ <%= event.Location %></p>
+                    </div>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+    <div class="section">
+        <h3>Past Events</h3>
+        <div class="eventWrapper mb-32">
+            <% events.slice(4).forEach(function(event) { %>
+                <a href="/EventDetails?id=<%= event.id %>" class="event">
+                    <h4><%= event.Title %></h4>
+                    <div class="eventDetails">            
+                        <p><%= moment(event.TimeDate).format('M/D h:mm a') %></p>
+                        <p>@ <%= event.Location %></p>
+                    </div>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>

@@ -6,10 +6,7 @@ window.onload = async function() {
         }
     })
     const data = await response.json()
-    if (data[0] === 'true') {
-        window.location.href = '/home'
-    }
-    else {
+    if (!data.success === true) {
         window.location.href = '/login'
     }
 }

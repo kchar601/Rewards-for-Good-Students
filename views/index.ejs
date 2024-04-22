@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rewards for Good Students</title>
-    <script src="/javascripts/index.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <script src="/javascripts/checkLogin.js"></script>
 </head>
 <body>
-    
+    <%- include('menu', {currentPage: 'Home', fillColor: '#FFFFFF', backgroundColor: 'secondary'}); %>
+    <div class="section pt-32">
+        <h2>Upcoming Events</h2>
+        <div class="eventWrapper">
+            <% events.slice(0, 3).forEach(function(event) { %>
+                <a href="/EventDetails?id=<%= event.id %>" class="event">
+                    <h4><%= event.Title %></h4>
+                    <div class="eventDetails">            
+                        <p><%= moment(event.TimeDate).format('M/D h:mm a') %></p>
+                        <p>@ <%= event.Location %></p>
+                    </div>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Reward Points</h2>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 75%"><%= userPoints %> Reward Points</div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Avaliable Rewards</h2>
+        <div class="rewardWrapper">
+            <% rewards.slice(0, 3).forEach(function(reward) { %>
+                <a href="/RewardDetails?id=<%= reward.id %>" class="reward">
+                    <h4><%= reward.name %></h4><h4><%= reward.pointValue %> points</h4>
+                </a>
+            <% }); %>
+        </div>
+    </div>
 </body>
 </html>

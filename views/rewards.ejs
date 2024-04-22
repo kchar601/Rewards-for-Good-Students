@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards</title>
+    <script src="/javascripts/checkLogin.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/events.css">
+</head>
+<body>
+    <%- include('menu', {currentPage: 'Home', fillColor: '#FFFFFF', backgroundColor: 'secondary'}); %>
+    <div class="section pt-32">
+        <h2>Rewards</h2>
+        <h3>Reward Points</h3>
+        <div class="progress-container mb-32">
+            <div class="progress-bar" style="width: 75%"><%= userPoints %> Reward Points</div>
+        </div>
+    </div>
+    <div class="section">
+        <h3>Avaliable Rewards</h3>
+        <div class="rewardWrapper">
+            <% rewards.forEach(function(reward) { %>
+                <a href="/RewardDetails?id=<%= reward.id %>" class="reward">
+                    <h4><%= reward.name %></h4><h4><%= reward.pointValue %> points</h4>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+    <div class="section">
+        <h3>Recent Transactions</h3>
+        <div class="rewardWrapper">
+            <h5>There are no recent transactions associated with your account.</h5>
+        </div>
+    </div>
+</body>
+</html>

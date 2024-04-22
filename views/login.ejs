@@ -13,13 +13,14 @@
         <h1 class="ta-c">Rewards for Good Students</h1>
         <h2 class="ta-c">Login</h2>
     </div>
-    <form action="/login" method="POST" class="mx-auto">
+    <div class="form" class="mx-auto">
             <label for="email">Email</label>
             <input class="mx-auto" type="email" name="email" id="email" required>
             <label for="password">Password</label>
             <input class="mx-auto" type="password" name="password" id="password" required>
-            <button class="mx-auto" type="submit">Login</button>
-    </form>
+            <button class="mx-auto" id="loginBtn">Login</button>
+            <span id="error" class="ta-c"></span>
+    </div>
     <div class="footer">
         <a href="/signup">Don't have an account? Signup</a>
     </div> 
