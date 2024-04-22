@@ -137,7 +137,7 @@ app.post('/signup', async function (req, res) {
     }
     else {
       const hashedPassword = await bcrypt.hash(pswd.password, 10);
-      await dbo.collection('Users').insertOne({ ...email, password: hashedPassword,  role: 'user', emailConfirm: false });
+      await dbo.collection('Users').insertOne({ ...email, password: hashedPassword,  role: 'user', emailConfirm: false, rewardPoints: 0 });
       req.session.isAuthenticated = true;
       req.session.userID = email.email;
       res.json({ success: true });
@@ -159,67 +159,10 @@ function isAuthenticated(req, res, next) {
   }
 };
 
-function isAdmin(req, res, next) {
-  if (req.session.isAuthenticated && req.session.isAdmin) {
-    next();
-  } else {
-    res.json({success: false, message: 'You are not authorized to access this page'});
-    }
-}
-
 app.get('/api/checkSession', isAuthenticated, (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   // If the middleware passes, the user is authenticated
   res.json({success: true});
-});
-
-app.get('/api/checkAdmin', isAdmin, (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  // If the middleware passes, the user is both authenticated and an admin
-  res.json({success: true});
-  });
-
-app.get('/api/checkEmailConfirmation', async (req, res) => {
-  try {
-    res.setHeader('Content-Type', 'application/json');
-    const email = req.query.email;
-    await client.connect();
-    const dbo = client.db('AppData');
-    await dbo.command({ ping: 1 });
-    console.log('Pinged your deployment. You successfully connected to MongoDB!');
-    const result = await req.dbo.collection("Users").findOne({ email: email });
-    if (result) {
-      console.log("user found");
-      res.json({ emailConfirmed: result.emailConfirm });
-    } else {
-      res.json({ emailConfirmed: false });
-    }
-  } catch (err) {
-    console.error(err);
-    res.json({ success: false, error: "An error occurred during email confirmation" });
-  }
-});
-
-app.post('/api/updateEmailConfirmation', async (req, res) => {
-  try {
-    res.setHeader('Content-Type', 'application/json');
-    const email = req.body.email;
-    await client.connect();
-    const dbo = client.db('AppData');
-    await dbo.command({ ping: 1 });
-    console.log('Pinged your deployment. You successfully connected to MongoDB!');
-    const result = await req.dbo.collection("Users").findOne({ email: email });
-    if (result) {
-      console.log("user found");
-      await req.db.collection("Users").updateOne({ email: email }, { $set: { emailConfirm: true } });
-      res.json({ success: true });
-    } else {
-      res.json({ success: false });
-    }
-  } catch (err) {
-    console.error(err);
-    res.json({ success: false, error: "An error occurred during email confirmation" });
-  }
 });
 
 app.get('/', async (req, res) => {
